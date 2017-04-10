@@ -10,6 +10,5 @@ You must manually setup your .task directory to be a git repository with some re
 
 ### Git Submodule Installation
 1. Change do your .task directory `cd ~/.task`
-2. Clone tgs `git clone git@gitlab.com:amracks/tgs`
-3. Symlink all scripts to the hooks directory 
-
+2. Add submodule for tgs `git submodule add git@gitlab.com:amracks/tgs`
+3. Symlink all scripts to the hooks directory `cd ~/.task/hooks && ln -s ../tgs/*.sh ./`
