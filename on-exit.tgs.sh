@@ -2,15 +2,17 @@
 
 DIRTY=0
 
-if [ -f /tmp/task-dirty ]
-then
-    DIRTY=`cat /tmp/task-dirty`
-fi
+while read x
+do
+    DIRTY=1
+done
 
 if [ ${DIRTY} -eq 1 ]
 then
     cd ~/.task
+    git commit -m "Hook Commit" *.data
     git pull -q
     git push -q
-    echo 0 > /tmp/task-dirty
 fi
+
+echo ${1}
